@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load widget_tweaks %}
+{% block title %}
+  {% if form.instance.pk %} Edit Post {% else %} New Post {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-4">
+        {% if form.instance.pk %} Edit Post {% else %} New Post {% endif %}
+      </h2>
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          {{ form.title.label_tag }}
+          {{ form.title|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+          {{ form.content.label_tag }}
+          {{ form.content|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" class="btn btn-success">
+          {% if form.instance.pk %} Update {% else %} Create {% endif %}
+        </button>
+        <a href="{% url 'index' %}" class="btn btn-secondary ms-2">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
