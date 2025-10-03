@@ -1,7 +1,3 @@
-"""
-Django settings for myBlogProject project.
-"""
-
 from pathlib import Path
 import os
 
@@ -15,7 +11,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-default-secret
 DEBUG = False  # Always False in production
 
 # Add your PythonAnywhere domain or custom domain here
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'rajmishra07.pythonanywhere.com'] # replace with your PA username domain
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '*'] # replace with your PA username domain
 
 # Application definition
 INSTALLED_APPS = [
